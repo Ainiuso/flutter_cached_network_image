@@ -277,7 +277,7 @@ class CachedNetworkImageState extends State<CachedNetworkImage>
       stream: _cacheManager()
           .getFile(widget.imageUrl, headers: widget.httpHeaders)
           // ignore errors if not mounted
-          .handleError(() {}, test: (_) => !mounted)
+          .handleError((_) {}, test: (_) => !mounted)
           .where((f) =>
               f?.originalUrl != fromMemory?.originalUrl ||
               f?.validTill != fromMemory?.validTill),
